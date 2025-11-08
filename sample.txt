@@ -1,0 +1,88 @@
+// const question = document.querySelector("#question");
+const questions = [
+    {
+        question: "HTML stands for ______ ",
+        answer: [
+            {text: "HTTP Language", correct: false},
+            {text: "Hyper Text Mail Language", correct: false},
+            {text: "Hyper Text Markup Language", correct: true},
+            {text: "All of these", correct: false},
+        ]
+    },
+    {
+        question: "Which of the following is used for styling web pages?",
+        answer: [
+            {text: "HTML", correct: false},
+            {text: "PHP", correct: false},
+            {text: "Boostrap", correct: false},
+            {text: "CSS", correct: true},
+        ]
+    },
+    {
+        question: "Which protocol is used for web borwsing?",
+        answer: [
+            {text: "Hyper Text Mail Language", correct: false},
+            {text: "HTTP", correct: true},
+            {text: "Hyper Text Markup Language", correct: false},
+            {text: "All of these", correct: false},
+        ]
+    },
+    {
+        question: "Which language is used for AI/ML? ",
+        answer: [
+            {text: "Python", correct: true},
+            {text: "C/C++", correct: false},
+            {text: "PHP", correct: false},
+            {text: "None of these", correct: false},
+        ]
+    },
+    {
+        question: "Binary stands for:",
+        answer: [
+            {text: "Basic Numbers", correct: false},
+            {text: "Bit System", correct: false},
+            {text: "Binary Digits", correct: true},
+            {text: "Boolean System", correct: false},
+        ]
+    },
+    {
+        question: "Hiding Data means:",
+        answer: [
+            {text: "Encapsulation", correct: true},
+            {text: "Decomposition", correct: false},
+            {text: "Polymopism", correct: false},
+            {text: "Inheritence", correct: false},
+        ]
+    }
+]
+
+// console.log(questions[4])
+const questionElement = document.querySelector("#question");
+const answerBtn = document.querySelector("#answer");
+const nextBtn = document.querySelector("#next_btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const startQuiz = () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextBtn.innerHTML = "Next";
+    showQuestion();
+    console.log("Start Quiz");
+}
+
+const showQuestion = () => {
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    currentQuestion.answer.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerBtn.appendChild(button);
+    });
+}
+
+startQuiz();

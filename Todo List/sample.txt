@@ -1,0 +1,117 @@
+function addTodo() {
+    if (input_box.value.trim() === "") {
+        alert("No task to be submitted");
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = input_box.value;
+
+    const crossIcon = document.createElement("span");
+    crossIcon.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    li.appendChild(crossIcon);
+    list_container.appendChild(li);
+
+    // remove when clicked
+    crossIcon.addEventListener("click", () => {
+        li.remove();
+    });
+
+    input_box.value = ""; // clear input
+}
+
+------------------------------------------------------------------------------------------
+
+const add_btn = document.querySelector(".add_btn");
+const input_box = document.querySelector("#input_box");
+const list_container = document.querySelector(".list_container ul");
+const warning_message = document.querySelector(".warning_message");
+
+
+    // Handle input characters length
+    input_box.addEventListener("input", ()=> {
+        if(input_box.value.trim().length === 0) {
+            input_box.style.backgroundColor = "white";
+            warning_message.style.visibility = "hidden";
+            input_box.style.color = "rgb(95, 95, 95)";
+            input_box.style.border = "1px solid rgb(168, 168, 168)";
+        }
+        else if(input_box.value.trim().length <= 3) {
+            warning_message.style.visibility = "visible";
+            input_box.style.border = "1px solid red";
+            input_box.style.color = "rgb(114, 0, 0)";
+            input_box.style.backgroundColor = "rgb(253, 198, 198)";
+        }
+        else {
+        warning_message.style.visibility = "hidden";
+        input_box.style.color = "rgb(0, 123, 171)";
+        input_box.style.backgroundColor = "rgb(211, 239, 250)";
+        input_box.style.border = "1px solid rgb(2, 126, 175)";
+    }
+    })
+
+function addTodo() {
+    if (input_box.value === "") {
+        warning_message.style.visibility = "visible";
+        input_box.style.border = "1px solid red";
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = input_box.value;
+
+    const crossIcon = document.createElement("span");
+    crossIcon.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+    li.appendChild(crossIcon);
+    list_container.appendChild(li);
+
+    crossIcon.addEventListener("click", () => {
+        console.log("Todo item is removed");
+        li.remove();
+    });
+
+    
+
+    input_box.value = ""; 
+
+    saveData();
+    if(input_box.value.trim().length === 0) {
+            input_box.style.backgroundColor = "white";
+            warning_message.style.visibility = "hidden";
+            input_box.style.color = "rgb(95, 95, 95)";
+            input_box.style.border = "1px solid rgb(168, 168, 168)";
+        }
+
+    crossIcon.addEventListener("click", () => {
+    li.remove();
+    saveData(); 
+    console.log("Todo item is removed");
+  });
+}
+
+add_btn.addEventListener("click", addTodo);
+
+input_box.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        addTodo();
+    }
+});
+
+
+function saveData() {
+    localStorage.setItem("data", list_container.innerHTML);
+}
+
+function showTask() {
+    list_container.innerHTML = localStorage.getItem("data");
+    const allTrashIcons = document.querySelectorAll(".fa-trash");
+    allTrashIcons.forEach(icon => {
+        icon.addEventListener("click", (e) => {
+            e.target.closest("li").remove();
+            saveData();
+        });
+    });
+}
+
+showTask();

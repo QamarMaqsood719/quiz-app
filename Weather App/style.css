@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2e8cf;
+}
+
+.display_box {
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #386641;
+}
+
+.search_container {
+    gap: 10px;
+    display: flex;
+    padding: 20px;
+    margin-top: 10px;
+    align-items: center;
+    /* background-color: red; */
+    justify-content: center;
+}
+
+.search_container input {
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #386641;
+    padding: 16px 12px;
+    border-radius: 26px;
+    background-color: #eff9d8;
+}
+
+.search_container button {
+    border: none;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    color: #386641;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #eff9d8;
+}
+
+.search_container button i {
+    font-size: 28px;
+}
+
+/* Middle Section Temperature Screen */
+.temperature_display {
+    gap: 10px;
+    display: flex;
+    color: #d0e995;
+    padding: 20px 0px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.temperature_display h1 {
+    font-size: 3.5rem;
+}
+
+.temperature_display h2 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+/* Last Section External Info */
+.external_info {
+    background-color: red;
+}

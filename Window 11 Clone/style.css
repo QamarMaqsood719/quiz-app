@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./asset/windows-11-dark-mode-blue.jpg);
+}
+
+.main_container {
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    position: relative;
+    justify-content: center;
+}
+
+.task_bar {
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    background-color: #d7e1f6;
+    justify-content: space-between;
+}
+
+.task_bar img {
+    height: 40px;
+}
+
+.start_menu {
+    top: 100%;
+    left: 34%;
+    height: 100vh;
+    transition: all 0.7s ease-in;
+    position: absolute;
+}
+
+.start_menu img {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.side_menu {
+    top: 11%;
+    left: -45%;
+    position: absolute;
+    transition: all 0.7s ease-in;
+}
+
+.side_menu img {
+    height: 430px;
+    border-radius: 6px;
+
+}

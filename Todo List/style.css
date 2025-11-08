@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+}
+
+.todo_container {
+    width: 600px;
+    height: 400px;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 8px;
+    background-color: rgb(248, 248, 248);
+    /* box-shadow: 4px 4px 4px rgb(192, 192, 192); */
+    box-shadow:
+    4px 4px 5px rgb(207, 207, 207),
+    -4px -4px 5px rgb(208, 208, 208);
+
+}
+
+.todo_container h1 {
+    margin-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(2, 126, 175);
+}
+
+.todo_input {
+    gap: 6px;
+    padding: 10px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo_input input {
+    width: 100%;
+    outline: none;
+    font-size: 17px;
+    color: rgb(95, 95, 95);
+    padding: 14px 14px;
+    border-radius: 24px;
+    background-color: transparent;
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.todo_btn button{
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 14px 26px;
+    border-radius: 22px;
+    text-transform: uppercase;
+    background-color: rgb(244, 139, 10);
+}
+
+.warning_message {
+    color: red;
+    margin-left: 14px;
+    font-size: 14px;
+    visibility: hidden;
+}
+
+.list_container ul li {
+    display: flex;
+    list-style: none;
+    margin-top: 8px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding: 16px 20px;
+    align-items: center;
+    border-radius: 6px;
+    color: rgb(0, 123, 171);
+    text-transform: capitalize;
+    justify-content: space-between;
+    background-color: rgb(211, 239, 250);
+}
+
+.list_container li span {
+    top: 16px;
+    width: 24px;
+    right: 10px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    color: rgb(193, 0, 0);
+}
+
+.list_container li span:hover {
+    color: rgb(223, 57, 57);
+}
+
+.fa-circle {
+    color: rgb(61, 61, 61);
+    cursor: pointer;
+}
+
+.fa-circle-check {
+    color: green;
+    cursor: pointer;
+    display: none !important; 
+}

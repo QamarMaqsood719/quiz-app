@@ -3,12 +3,7 @@ const currentDay = document.querySelector(".current_day");
 const currrent_month = document.querySelector(".currrent_month");
 const currentDate = document.querySelector(".current_date");
 const currentYear = document.querySelector(".current_year");
-monthIndex = new Date().getMonth();
-const lastDate = new Date(new Date().getFullYear(), monthIndex + 1, 0).getDate();
-console.log(lastDate);
-const day = document.querySelector(".days");
-
-// console.log(monthIndex);
+const daysContainer = document.querySelector(".week_days");
 
 const months = [
     "January",
@@ -23,29 +18,41 @@ const months = [
     "October",
     "November",
     "December"
-]
+];
 
-const data = new Date().getDate();
-console.log(data)
+const today = new Date();
+const monthIndex = today.getMonth();
+const year = today.getFullYear();
+const date = today.getDate();
+const weekday = today.toLocaleDateString('en-US', { weekday: 'short' });
 
-currentMonth.innerHTML = months[monthIndex];
-console.log(months[monthIndex]);
-// console.log(months.length)
 
-currrent_month.innerHTML = months[monthIndex];
-currentDay.innerHTML = new Date().toLocaleDateString('en-US', { weekday: 'short' });
-currentDate.innerHTML = `0${new Date().getDate()}`;
-currentYear.innerHTML = new Date().getFullYear();
+currentMonth.textContent = months[monthIndex];
+currrent_month.textContent = months[monthIndex];
+currentDay.textContent = weekday;
+currentDate.textContent = date < 10 ? `0${date}` : date;
+currentYear.textContent = year;
 
-let days = "";
-for(let i = 1; i <= lastDate; i++) {
-    days += `<div>${i}</div>`
+
+const lastDate = new Date(year, monthIndex + 1, 0).getDate();
+
+
+let firstDayIndex = new Date(year, monthIndex, 1).getDay();
+firstDayIndex = firstDayIndex === 0 ? 6 : firstDayIndex -1; 
+
+
+let daysHTML = "";
+for(let i=0; i<firstDayIndex; i++){
+    // daysHTML += `<div class="empty"></div>`;
 }
 
-day.innerHTML = days;
 
-// currentDate.innerHTML = new Date().getDate();
-// currentDay.innerHTML = new Date().getDay();
-// const date = document.createElement("span");
-// date.textContent = new Date().getDate();
-// currentMonth.appendChild(date);
+for(let i=1;i<=lastDate;i++){
+    if(i===date){
+        daysHTML += `<div class="today">${i}</div>`;
+    } else {
+        daysHTML += `<div>${i}</div>`;
+    }
+}
+
+daysContainer.innerHTML = daysHTML;

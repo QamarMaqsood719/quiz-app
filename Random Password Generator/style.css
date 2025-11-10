@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    padding: 0px 30px;
+    position: relative;
+    align-items: center;
+    background-color: #b8e3eb;
+}
+
+.password_generator {
+    width: 500px;
+    padding: 10px;
+    height: 300px;
+}
+
+h1 {
+    color: #001d3d;
+    padding: 10px;
+    font-size: 3rem;
+}
+
+h1  span {
+    color: #023e8a;
+    border-bottom: 4px solid #023e8a;
+}
+
+.input_field {
+    padding: 8px;
+    display: flex;
+    margin-top: 20px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.input_password {
+    width: 100%;
+    color: gray;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 6px;
+    border: none;
+}
+
+.fa-copy {
+    color: #7aabea;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.generate_password {
+    gap: 10px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 17px;
+    color: #a8dadc;
+    margin-top: 20px;
+    border-radius: 4px;
+    padding: 14px 28px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d3557;
+    transition: all 0.2s ease-in;
+}
+
+.update_message {
+    gap: 14px;
+    right: 3%;
+    bottom: 6%;
+    color: white;
+    width: 240px;
+    font-size: 18px;
+    padding: 14px 0px;
+    align-items: center;
+    border-radius: 6px;
+    position: absolute;
+    justify-content: center;
+    flex-direction: row-reverse;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.update_message.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Mobile / small screen styles */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+        justify-content: center;
+    }
+
+    .password_generator {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding: 5px;
+    }
+
+    h1 span {
+        border-bottom: 2px solid #023e8a;
+    }
+
+    .input_field {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .input_password {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .fa-copy {
+        font-size: 18px;
+    }
+
+    .generate_password {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 0;
+        margin-top: 15px;
+    }
+
+    .update_message {
+        width: 90%;
+        font-size: 16px;
+        bottom: 4%;
+        right: 5%;
+    }
+}
